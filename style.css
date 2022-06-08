@@ -1,0 +1,28 @@
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: rgb(68, 68, 196);
+}
+
+#site-title {
+    color: white;
+}
+
+#search-button {
+    border-color: white;
+    color: white;
+}
+
+#search-button:hover {
+    background-color: blue;
+}
+
+.hidden {
+    display: none;
+}
+
+.register {
+    padding: 30px;
+}
