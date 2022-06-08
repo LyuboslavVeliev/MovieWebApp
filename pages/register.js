@@ -4,6 +4,11 @@ function showPage() {
     registerSection.classList.remove('hidden');
 }
 
+function hidePage() {
+    registerSection.classList.add('hidden');
+}
+
 export default {
-    showPage
+    showPage,
+    hidePage
 };
