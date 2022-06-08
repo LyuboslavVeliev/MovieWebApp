@@ -11,9 +11,13 @@ let navBarElement = document.querySelector('.navbar-nav');
 navBarElement.addEventListener('click', (e) => {
     e.preventDefault();
 
-    Object.values(pages).forEach(page => page.hidePage());
+    hidePages();
 
     let page = e.target.getAttribute('data-link');
 
     pages[page].showPage();
 });
+
+function hidePages() {
+    Object.values(pages).forEach(page => page.hidePage());
+}
