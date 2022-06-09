@@ -3,5 +3,6 @@ function saveAccessToken(token) {
 }
 
 export default {
-    saveAccessToken
+    saveAccessToken,
+    isAuthorized
 };
