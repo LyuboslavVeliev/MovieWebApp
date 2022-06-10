@@ -9,7 +9,11 @@ loginForm.addEventListener('submit', (e) => {
 
     let data = new FormData(e.currentTarget);
 
-    fetch(`${baseUrl}/users/login`, {
+    login(data);
+});
+
+async function login(data) {
+    await fetch(`${baseUrl}/users/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,7 +27,9 @@ loginForm.addEventListener('submit', (e) => {
     .then(responseData => {
         identity.saveAccessToken(responseData.accessToken);
     });
-});
+
+    identity.adjustNavBarIfAuthorized();
+}
 
 function showPage() {
     loginSection.classList.remove('hidden');

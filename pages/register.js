@@ -9,7 +9,11 @@ registerForm.addEventListener('submit', (e) => {
 
     let data = new FormData(e.currentTarget);
 
-    fetch(`${baseUrl}/users/register`, {
+    register(data);
+});
+
+async function register(data) {
+    await fetch(`${baseUrl}/users/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,7 +27,9 @@ registerForm.addEventListener('submit', (e) => {
     .then(responseData => {
         identity.saveAccessToken(responseData.accessToken);
     });
-});
+
+    identity.adjustNavBarIfAuthorized();
+}
 
 function showPage() {
     registerSection.classList.remove('hidden');
