@@ -1,5 +1,6 @@
 let baseUrl = 'http://localhost:3030';
 let homeSection = document.querySelector('.home');
+let movieListElement = document.querySelector('#movie-list');
 
 fetch(`${baseUrl}/data/movies`)
     .then(res => res.json())
@@ -17,7 +18,7 @@ function hidePage() {
 
 function renderMovies(movies) {
     for (const movie of movies) {
-        let movieCard = '<div class="card" style="width: 18rem;"><img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p><a href="#" class="btn btn-primary">Go somewhere</a></div></div>';
+        let movieCard = '<div class="card" style="width: 18rem;"><img width="300px" height="400px" src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p><a href="#" class="btn btn-primary">Go somewhere</a></div></div>';
 
         var stringToHTML = function (str) {
             var parser = new DOMParser();
@@ -25,7 +26,12 @@ function renderMovies(movies) {
             return doc.body;
         };
 
-        let movieCardElement = stringToHTML(movieCard);
+        let movieCardElement = document.createElement('li');
+        movieCardElement.innerHTML = movieCard;
+
+        movieListElement.appendChild(movieCardElement);
+
+        console.log(movieListElement);
 
         let titleElement = movieCardElement.querySelector('.card-title');
         titleElement.textContent = movie.title;
@@ -35,8 +41,6 @@ function renderMovies(movies) {
 
         let imageElement = movieCardElement.querySelector('.card-img-top');
         imageElement.src = movie.img;
-
-        homeSection.appendChild(movieCardElement);
     }
 }
 
