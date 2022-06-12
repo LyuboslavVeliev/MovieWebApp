@@ -1,3 +1,7 @@
+.nav-link[tabindex]:focus {
+    color: rgb(68, 68, 196);
+}
+
 .nav-link {
     color: white;
 }
@@ -8,6 +12,10 @@
 
 #site-title {
     color: white;
+}
+
+#search-button[tabindex]:focus {
+    background-color: blue;
 }
 
 #search-button {
