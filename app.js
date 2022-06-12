@@ -30,6 +30,27 @@ navBarElement.addEventListener('click', (e) => {
     }
 });
 
+// let searchForm = document.querySelector('#search-form');
+
+// searchForm.addEventListener('submit', (e) => {
+//     e.preventDefault();
+
+//     let data = new FormData(e.currentTarget);
+//     let searchedTitle = data.get('movie-title');
+
+//     let moviesElements = document.querySelectorAll('.card');
+
+//     let searchedMovies = [];
+
+//     for (const moviesElement of moviesElements) {
+//         let movieTitle = moviesElement.querySelector('.card-title').textContent;
+
+//         if (movieTitle.contains(searchedTitle)) {
+            
+//         }
+//     }
+// });
+
 function hidePages() {
     Object.values(pages).forEach(page => page.hidePage());
 }

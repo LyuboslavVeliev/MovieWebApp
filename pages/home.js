@@ -1,6 +1,23 @@
 let baseUrl = 'http://localhost:3030';
 let homeSection = document.querySelector('.home');
 let movieListElement = document.querySelector('#movie-list');
+let searchForm = document.querySelector('#search-form');
+let searchInput = document.querySelector('#search-input');
+
+let allMovies = [];
+
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+});
+
+searchInput.addEventListener('input', (e) => {
+    let value = e.target.value;
+
+    allMovies.forEach(data => {
+        let isVisible = data.movie.title.toLowerCase().includes(value.toLowerCase());
+        data.element.classList.toggle('hidden', !isVisible);
+    });
+});
 
 fetch(`${baseUrl}/data/movies`)
     .then(res => res.json())
@@ -18,7 +35,10 @@ function hidePage() {
 
 function renderMovies(movies) {
     for (const movie of movies) {
-        let movieCard = '<div class="card" style="width: 18rem;"><img width="300px" height="400px" src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p><a href="#" class="btn btn-primary">Go somewhere</a></div></div>';
+
+        
+
+        let movieCard = '<div class="card" style="width: 18rem; height: 700px"><img width="300px" height="400px" src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p><a href="#" class="btn btn-primary">Go somewhere</a></div></div>';
 
         var stringToHTML = function (str) {
             var parser = new DOMParser();
@@ -31,8 +51,6 @@ function renderMovies(movies) {
 
         movieListElement.appendChild(movieCardElement);
 
-        console.log(movieListElement);
-
         let titleElement = movieCardElement.querySelector('.card-title');
         titleElement.textContent = movie.title;
 
@@ -41,6 +59,11 @@ function renderMovies(movies) {
 
         let imageElement = movieCardElement.querySelector('.card-img-top');
         imageElement.src = movie.img;
+
+        allMovies.push({
+            movie,
+            element: movieCardElement,
+        });
     }
 }
 
