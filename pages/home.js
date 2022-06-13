@@ -34,6 +34,8 @@ function hidePage() {
 }
 
 function renderMovies(movies) {
+    let fragment = document.createDocumentFragment();
+
     for (const movie of movies) {
         let movieCard = '<div class="card" style="width: 18rem; height: 700px"><img width="300px" height="400px" src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p><a href="#" class="btn btn-primary">Go somewhere</a></div></div>';
 
@@ -46,8 +48,6 @@ function renderMovies(movies) {
         let movieCardElement = document.createElement('li');
         movieCardElement.innerHTML = movieCard;
 
-        movieListElement.appendChild(movieCardElement);
-
         let titleElement = movieCardElement.querySelector('.card-title');
         titleElement.textContent = movie.title;
 
@@ -57,11 +57,15 @@ function renderMovies(movies) {
         let imageElement = movieCardElement.querySelector('.card-img-top');
         imageElement.src = movie.img;
 
+        fragment.appendChild(movieCardElement);
+
         allMovies.push({
             movie,
             element: movieCardElement,
         });
     }
+
+    movieListElement.appendChild(fragment);
 }
 
 export default {
