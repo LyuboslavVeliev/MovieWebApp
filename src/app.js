@@ -36,7 +36,17 @@
 // }
 
 
+import page from '../node_modules/page/page.mjs';
+import { render } from '../node_modules/lit-html/lit-html.js';
 
-import mainTemplate from "./render.js";
+import navbarTemplate from './templates/navBar.js';
 
-mainTemplate();
+import loginView from './views/login.js'
+
+let rootElement = document.querySelector('#root');
+
+render(navbarTemplate(), rootElement);
+
+page('/login', loginView);
+
+page.start();

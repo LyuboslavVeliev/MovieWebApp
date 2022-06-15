@@ -16,7 +16,7 @@ let navbarTemplate = () => html`
                 <a class="nav-link" data-link="watchlist" tabindex="1" href="#">Watchlist</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-link="login" tabindex="1" href="#">Login</a>
+                <a class="nav-link" data-link="login" tabindex="1" href="/login">Login</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-link="register" tabindex="1" href="#">Register</a>

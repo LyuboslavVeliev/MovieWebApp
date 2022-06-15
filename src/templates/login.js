@@ -1,7 +1,7 @@
-import { html } from '../../node_modules/lit-html/lit-html.js'
+import { html } from '../../node_modules/lit-html/lit-html.js';
 
 let loginTemplate = () => html`
-    <section class="login padding-30 hidden">
+    <section class="login padding-30">
           <h3>Login</h3>
         <form class="col g-3">
             <div class="mb-3 row">
