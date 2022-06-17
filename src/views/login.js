@@ -1,7 +1,6 @@
-//import loginTemplate from '../templates/login.js';
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { doLogin } from '../services/userService.js';
 
-let baseUrl = 'http://localhost:3030';
 
 let loginTemplate = () => html`
     <section class="login padding-30">
@@ -28,29 +27,8 @@ let loginTemplate = () => html`
 
 let rootElement = document.querySelector('#root');
 
-function loginView() {
+function loginView(ctx) {
     return render(loginTemplate(), rootElement);
-}
-
-let doLogin = (e) => {
-    e.preventDefault();
-
-    let data = new FormData(e.currentTarget);
-
-    fetch(`${baseUrl}/users/login`, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-            email: data.get('email'),
-            password: data.get('password'),
-        }),
-    })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-    });
 }
 
 export default loginView;
