@@ -1,6 +1,6 @@
 let baseUrl = 'http://localhost:3030';
 
-export function doLogin(e) {
+export function login(e) {
     e.preventDefault();
 
     let data = new FormData(e.currentTarget);

@@ -1,11 +1,11 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { doLogin } from '../services/userService.js';
+import { login } from '../services/userService.js';
 
 
 let loginTemplate = () => html`
     <section class="login padding-30">
           <h3>Login</h3>
-        <form @submit=${(e) => doLogin(e)} class="col g-3">
+        <form @submit=${(e) => login(e)} class="col g-3">
             <div class="mb-3 row">
                 <label for="emailL" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
@@ -28,7 +28,7 @@ let loginTemplate = () => html`
 let rootElement = document.querySelector('#root');
 
 function loginView(ctx) {
-    return render(loginTemplate(), rootElement);
+    return ctx.render(loginTemplate);
 }
 
 export default loginView;
