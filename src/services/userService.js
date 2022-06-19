@@ -20,3 +20,24 @@ export function login(e) {
         console.log(data);
     });
 }
+
+export function register(e) {
+    e.preventDefault();
+
+    let data = new FormData(e.currentTarget);
+
+    fetch(`${baseUrl}/users/register`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: data.get('email'),
+            password: data.get('password'),
+        }),
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    });
+}
