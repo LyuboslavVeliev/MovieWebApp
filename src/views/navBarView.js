@@ -1,6 +1,6 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 
-export const navBarTemplate = () => html`
+export const navBarTemplate = (ctx) => html`
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" id="site-title" href="#">MovieWebApp</a>
@@ -15,15 +15,21 @@ export const navBarTemplate = () => html`
             <li class="nav-item">
               <a class="nav-link" data-link="watchlist" tabindex="1" href="#">Watchlist</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-link="login" tabindex="1" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-link="register" tabindex="1" href="/register">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link hidden" data-link="logout" tabindex="1" href="#">Logout</a>
-            </li>
+            ${  ctx.isAuthenticated 
+                ? 
+                html`
+                <li class="nav-item">
+                    <a class="nav-link" data-link="logout" tabindex="1" href="/logout">Logout</a>
+                </li>`
+                :
+                html`
+                <li class="nav-item">
+                    <a class="nav-link" data-link="login" tabindex="1" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-link="register" tabindex="1" href="/register">Register</a>
+                </li>`
+            }
           </ul>
           <form class="d-flex" role="search" id="search-form">
             <input class="form-control me-2" type="search" name="movie-title" id="search-input" placeholder="Search" aria-label="Search">

@@ -46,6 +46,21 @@ export function register(e) {
     });
 }
 
+export function logout() {
+    let accessToken = localStorage.getItem('accessToken');
+
+    if (accessToken) {
+        return fetch(`${baseUrl}/users/logout`, {
+            headers: {
+                'X-Authorization': accessToken
+            }
+        })
+        .then(res => {
+            localStorage.clear();
+        });
+    }
+}
+
 function saveUser(user) {
     localStorage.setItem('accessToken', user.accessToken);
     localStorage.setItem('email', user.email);
