@@ -48,7 +48,7 @@ import logoutView from './views/logoutView.js';
 page(renderMiddleware);
 page(authMiddleware);
 
-page('/', loginView)
+page('/', registerView)
 page('/login', loginView);
 page('/register', registerView);
 page('/logout', logoutView);

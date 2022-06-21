@@ -19,9 +19,14 @@ export function login(e) {
     })
     .then(res => res.json())
     .then(user => {
-        saveUser(user);
-        page.redirect('/');
-    });
+        if (user.accessToken) {
+            saveUser(user);
+            page.redirect('/');
+        } else {
+            console.log('Login has failed');
+        }
+    })
+    .catch(err => console.log(err));
 }
 
 export function register(e) {
@@ -55,7 +60,7 @@ export function logout() {
                 'X-Authorization': accessToken
             }
         })
-        .then(res => {
+        .then(() => {
             localStorage.clear();
         });
     }

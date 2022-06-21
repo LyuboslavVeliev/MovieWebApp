@@ -19,6 +19,9 @@ export const navBarTemplate = (ctx) => html`
                 ? 
                 html`
                 <li class="nav-item">
+                  <a class="nav-link" data-link="watchlist" tabindex="1" href="#">My Movies</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" data-link="logout" tabindex="1" href="/logout">Logout</a>
                 </li>`
                 :
