@@ -44,11 +44,12 @@ import { authMiddleware } from './middlewares/authMiddleware.js';
 import loginView from './views/loginView.js';
 import registerView from './views/registerView.js';
 import logoutView from './views/logoutView.js';
+import homeView from './views/homeView.js';
 
 page(renderMiddleware);
 page(authMiddleware);
 
-page('/', registerView)
+page('/', homeView);
 page('/login', loginView);
 page('/register', registerView);
 page('/logout', logoutView);
