@@ -7,7 +7,7 @@ let homeTemplate = () => html`
     <section class="home">
         <ul id="movie-list">
             ${allMovies.map(movie => {
-                return html`
+                let movieCardElement = () => html`
                     <li class="card" style="width: 18rem; height: 700px">
                         <img width="300px" height="400px" src=${movie.img} class="card-img-top" alt=${movie.title}>
                         <div class="card-body">
@@ -15,7 +15,10 @@ let homeTemplate = () => html`
                             <p class="card-text">${movie.description}</p>
                             <a href="#" class="btn btn-primary">Details</a>
                         </div>
-                    </li>`;
+                    </li>`
+                
+
+                return movieCardElement();
             })}
         </ul>
     </section>

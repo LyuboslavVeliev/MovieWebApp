@@ -1,4 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
+import { search } from '../services/searchService.js';
 
 export const navBarTemplate = (ctx) => html`
     <nav class="navbar navbar-expand-lg bg-dark">
@@ -34,8 +35,8 @@ export const navBarTemplate = (ctx) => html`
                 </li>`
             }
           </ul>
-          <form class="d-flex" role="search" id="search-form">
-            <input class="form-control me-2" type="search" name="movie-title" id="search-input" placeholder="Search" aria-label="Search">
+          <form @submit=${(e) => e.preventDefault()} class="d-flex" role="search" id="search-form">
+            <input @input=${(e) => search(e)} class="form-control me-2" type="search" name="movie-title" id="search-input" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" id="search-button" tabindex="1" type="submit">Search</button>
           </form>
         </div>
