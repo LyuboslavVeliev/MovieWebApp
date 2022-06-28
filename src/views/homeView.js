@@ -26,7 +26,7 @@ let homeTemplate = () => html`
 `;
 
 function homeView(ctx) {
-    return ctx.render(homeTemplate);
+    return ctx.render(homeTemplate());
 }
 
 export default homeView;

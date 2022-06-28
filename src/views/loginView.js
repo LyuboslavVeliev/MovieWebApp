@@ -26,7 +26,7 @@ let loginTemplate = () => html`
 `;
 
 function loginView(ctx) {
-    return ctx.render(loginTemplate);
+    return ctx.render(loginTemplate());
 }
 
 export default loginView;

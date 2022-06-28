@@ -15,6 +15,6 @@ let movieDetailsTemplate = (movie) => html`
 export const movieDetailsView = (ctx) => {
     let movieId = ctx.params.movieId;
     let movie = movieService.getMovieById(movieId).then(movie => {
-        return ctx.render(movieDetailsTemplate.bind(null, movie));
+        return ctx.render(movieDetailsTemplate(movie));
     });
 }

@@ -25,7 +25,7 @@ let registerTemplate = () => html`
 `;
 
 let registerView = (ctx) => {
-    return ctx.render(registerTemplate);
+    return ctx.render(registerTemplate());
 }
 
 export default registerView;

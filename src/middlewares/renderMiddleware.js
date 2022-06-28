@@ -7,7 +7,7 @@ let layoutView = (ctx, templateResult) => html`
         ${navBarTemplate(ctx)}
     </header>
     <main>
-        ${templateResult()}
+        ${templateResult}
     </main>
 `;
 
