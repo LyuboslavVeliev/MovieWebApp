@@ -8,12 +8,13 @@ let homeTemplate = () => html`
         <ul id="movie-list">
             ${allMovies.map(movie => {
                 let movieCardElement = () => html`
-                    <li class="card" style="width: 18rem; height: 700px">
-                        <img width="300px" height="400px" src=${movie.img} class="card-img-top" alt=${movie.title}>
+                    <li class="card" style="width: 200px; height: 420px">
+                        <img width="100%" height="300px" src=${movie.img} class="card-img-top" alt=${movie.title}>
                         <div class="card-body">
                             <h5 class="card-title">${movie.title}</h5>
-                            <p class="card-text">${movie.description}</p>
-                            <a href="#" class="btn btn-primary">Details</a>
+                            <div class="card-actions">
+                                <a href="/movies/${movie._id}" class="btn btn-primary">Details</a>
+                            </div>
                         </div>
                     </li>`
                 

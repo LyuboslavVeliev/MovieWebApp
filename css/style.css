@@ -46,3 +46,8 @@
 #movie-list li {
     margin-bottom: 10px;
 }
+
+.card-actions {
+    display: flex;
+    justify-content: center;
+}
