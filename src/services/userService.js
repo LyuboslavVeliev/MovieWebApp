@@ -42,6 +42,7 @@ export function register(e) {
         body: JSON.stringify({
             email: data.get('email'),
             password: data.get('password'),
+            role: 'User',
         }),
     })
     .then(res => res.json())
@@ -71,10 +72,21 @@ function saveUser(user) {
     localStorage.setItem('email', user.email);
     localStorage.setItem('password', user.password);
     localStorage.setItem('_id', user._id);
+    localStorage.setItem('role', user.role);
 }
 
 export const isAuthenticated = () => {
     let accessToken = localStorage.getItem('accessToken');
 
     return Boolean(accessToken);
+}
+
+export const isAdmin = () => {
+    let userRole = localStorage.getItem('role');
+
+    if (userRole == 'Admin') {
+        return true;
+    } else {
+        return false;
+    }
 }
