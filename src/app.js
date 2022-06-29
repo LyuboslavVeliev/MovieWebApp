@@ -8,6 +8,7 @@ import registerView from './views/registerView.js';
 import logoutView from './views/logoutView.js';
 import homeView from './views/homeView.js';
 import { movieDetailsView } from './views/movieDetailsView.js';
+import addMovieView from './views/addMovieView.js';
 
 page(renderMiddleware);
 page(authMiddleware);
@@ -17,6 +18,7 @@ page('/login', loginView);
 page('/register', registerView);
 page('/logout', logoutView);
 page('/movies', homeView);
+page('/movies/add', addMovieView);
 page('/movies/:movieId', movieDetailsView);
 
 page.start();

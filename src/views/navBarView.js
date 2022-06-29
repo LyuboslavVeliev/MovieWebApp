@@ -1,4 +1,4 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 import { search } from '../services/searchService.js';
 
 export const navBarTemplate = (ctx) => html`
@@ -16,12 +16,20 @@ export const navBarTemplate = (ctx) => html`
             <li class="nav-item">
               <a class="nav-link" data-link="watchlist" tabindex="1" href="#">Watchlist</a>
             </li>
-            ${  ctx.isAuthenticated 
+            ${
+               ctx.isAdmin
+               ?
+               html`
+                <li class="nav-item">
+                    <a class="nav-link" data-link="add-movie" tabindex="1" href="/movies/add">Add Movie</a>
+                </li>`
+                :
+                nothing
+            }
+            ${  
+              ctx.isAuthenticated 
                 ? 
                 html`
-                <li class="nav-item">
-                  <a class="nav-link" data-link="watchlist" tabindex="1" href="#">My Movies</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" data-link="logout" tabindex="1" href="/logout">Logout</a>
                 </li>`
@@ -34,6 +42,7 @@ export const navBarTemplate = (ctx) => html`
                     <a class="nav-link" data-link="register" tabindex="1" href="/register">Register</a>
                 </li>`
             }
+            
           </ul>
           <form @submit=${(e) => e.preventDefault()} class="d-flex" role="search" id="search-form">
             <input @input=${(e) => search(e)} class="form-control me-2" type="search" name="movie-title" id="search-input" placeholder="Search" aria-label="Search">
