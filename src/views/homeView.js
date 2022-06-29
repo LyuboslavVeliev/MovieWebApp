@@ -1,9 +1,7 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { getAllMovies } from '../services/movieService.js';
 
-let allMovies = await getAllMovies();
-
-let homeTemplate = () => html`
+let homeTemplate = (allMovies) => html`
     <section class="home">
         <ul id="movie-list">
             ${allMovies.map(movie => {
@@ -25,8 +23,10 @@ let homeTemplate = () => html`
     </section>
 `;
 
-function homeView(ctx) {
-    return ctx.render(homeTemplate());
+async function homeView(ctx) {
+    let allMovies = await getAllMovies();
+
+    return ctx.render(homeTemplate(allMovies));
 }
 
 export default homeView;

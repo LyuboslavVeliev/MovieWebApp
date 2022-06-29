@@ -1,7 +1,7 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { addMovie } from '../services/movieService.js';
 
-let addMovieTemplate = () => html`
+let addMovieTemplate = (onSubmit) => html`
     <section class="padding-30">
           <h3>Add Movie</h3>
         <form  @submit=${(e) => addMovie(e)} class="col g-3">
@@ -30,8 +30,15 @@ let addMovieTemplate = () => html`
       </section>
 `;
 
-let addMovieView = (ctx) => {
-    return ctx.render(addMovieTemplate());
+let addMovieView = async (ctx) => {
+  let onSubmit = (e) => {
+    addMovie(e)
+      .then(() => {
+        ctx.page.redirect('/');
+      })
+  }
+
+  return ctx.render(addMovieTemplate(onSubmit));
 }
 
 export default addMovieView;
