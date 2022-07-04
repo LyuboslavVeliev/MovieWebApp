@@ -1,5 +1,5 @@
-import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
-import * as movieService from '../services/movieService.js';
+import { html, nothing } from '../../../node_modules/lit-html/lit-html.js';
+import * as movieService from '../../services/movieService.js';
 
 let movieDetailsTemplate = (movie, isAdmin) => html`
     <div class="card mb-3">
@@ -14,7 +14,7 @@ let movieDetailsTemplate = (movie, isAdmin) => html`
             ?
             html`<div class="col-auto details-buttons">
                 <a class="details-button" href="/movies/${movie._id}/edit">Edit</a>
-                <a class="details-button" href="/delete">Delete</a>
+                <a class="details-button" href="/movies/${movie._id}/delete">Delete</a>
             </div>`
             :
             nothing

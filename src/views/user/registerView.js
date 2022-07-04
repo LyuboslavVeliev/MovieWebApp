@@ -1,5 +1,5 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
-import { register } from '../services/userService.js';
+import { html } from '../../../node_modules/lit-html/lit-html.js';
+import { register } from '../../services/userService.js';
 
 let registerTemplate = () => html`
     <section class="register padding-30">

@@ -1,4 +1,4 @@
-import { logout } from '../services/userService.js';
+import { logout } from '../../services/userService.js';
 
 function logoutView(ctx) {
     logout()

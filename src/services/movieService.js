@@ -66,3 +66,14 @@ export const editMovie = (e, movieId) => {
         page.redirect('/');
     });
 }
+
+export const deleteMovie = (movieId) => {
+    return fetch(`${baseUrl}/${movieId}`, {
+        method: 'DELETE',
+        headers: {
+            'X-Admin': '',
+            'content-type': 'application/json',
+        }
+    })
+    .then(res => res.json());
+}

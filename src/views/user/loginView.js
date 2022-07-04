@@ -1,5 +1,5 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
-import { login } from '../services/userService.js';
+import { html } from '../../../node_modules/lit-html/lit-html.js';
+import { login } from '../../services/userService.js';
 
 
 let loginTemplate = () => html`

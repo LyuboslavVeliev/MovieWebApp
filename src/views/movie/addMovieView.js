@@ -1,5 +1,5 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
-import { addMovie } from '../services/movieService.js';
+import { html } from '../../../node_modules/lit-html/lit-html.js';
+import { addMovie } from '../../services/movieService.js';
 
 let addMovieTemplate = () => html`
     <section class="padding-30">
