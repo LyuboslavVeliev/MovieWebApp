@@ -6,3 +6,11 @@ export const authMiddleware = (ctx, next) => {
 
     next();
 }
+
+export const isAdminMiddleware = (ctx, next) => {
+    if (ctx.isAdmin === true) {
+        next();
+    } else {
+        console.log('Access Denied');
+    }
+}

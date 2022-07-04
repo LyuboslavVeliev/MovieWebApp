@@ -51,3 +51,25 @@
     display: flex;
     justify-content: center;
 }
+
+.details-button {
+    
+    margin-right: 40px;
+
+    background-color: blue;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.details-button:hover {
+    color: white;
+}
+
+.details-buttons {
+    display: flex;
+    justify-content: center;
+}

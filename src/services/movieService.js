@@ -21,7 +21,6 @@ export const addMovie = (e) => {
     let accessToken = localStorage.getItem('accessToken');
     let userId = localStorage.getItem('_id');
 
-    if (isAdmin) {
         fetch(baseUrl, {
             method: 'POST',
             headers: {
@@ -39,7 +38,31 @@ export const addMovie = (e) => {
         .then(() => {
             page.redirect('/');
         });
-    } else {
-        console.log('Access Denied');
-    }
+    
+}
+
+export const editMovie = (e, movieId) => {
+    e.preventDefault();
+
+    let data = new FormData(e.currentTarget);
+
+    let userId = localStorage.getItem('_id');
+
+    fetch(`${baseUrl}/${movieId}`, {
+        method: 'PUT',
+        headers: {
+            'X-Admin': '',
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify({ 
+            _ownerId: userId,
+            title: data.get('title'),
+            description: data.get('description'),
+            img: data.get('img'), 
+        })
+    })
+    .then(res => res.json())
+    .then(() => {
+        page.redirect('/');
+    });
 }
